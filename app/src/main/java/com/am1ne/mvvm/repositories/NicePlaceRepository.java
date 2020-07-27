@@ -1,0 +1,62 @@
+package com.am1ne.mvvm.repositories;
+
+import androidx.lifecycle.MutableLiveData;
+import com.am1ne.mvvm.models.NicePlace;
+
+import java.util.ArrayList;
+
+public class NicePlaceRepository {
+    private static final NicePlaceRepository ourInstance = new NicePlaceRepository();
+
+    public static NicePlaceRepository getInstance() {
+        return ourInstance;
+    }
+
+    public ArrayList<NicePlace> dataSet = new ArrayList<>();
+
+    public MutableLiveData<ArrayList<NicePlace>> getDataSet() {
+        MutableLiveData<ArrayList<NicePlace>> data = new MutableLiveData<>();
+
+        if (dataSet == null || dataSet.size() <= 0) {
+            setNicePlaces();
+        }
+
+        data.setValue(dataSet);
+        return data;
+    }
+
+    public void setNicePlaces() {
+        dataSet.add(
+                new NicePlace("https://i.redd.it/tpsnoz5bzo501.jpg",
+                        "Havasu Falls")
+        );
+        dataSet.add(
+                new NicePlace("https://i.redd.it/tpsnoz5bzo501.jpg",
+                        "Trondheim")
+        );
+        dataSet.add(
+                new NicePlace("https://i.redd.it/qn7f9oqu7o501.jpg",
+                        "Portugal")
+        );
+        dataSet.add(
+                new NicePlace("https://i.redd.it/j6myfqglup501.jpg",
+                        "Rocky Mountain National Park")
+        );
+        dataSet.add(
+                new NicePlace("https://i.redd.it/0h2gm1ix6p501.jpg",
+                        "Havasu Falls")
+        );
+        dataSet.add(
+                new NicePlace("https://i.redd.it/k98uzl68eh501.jpg",
+                        "Mahahual")
+        );
+        dataSet.add(
+                new NicePlace("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg",
+                        "Frozen Lake")
+        );
+        dataSet.add(
+                new NicePlace("https://i.redd.it/obx4zydshg601.jpg",
+                        "Austrailia")
+        );
+    }
+}
